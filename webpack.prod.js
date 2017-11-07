@@ -13,24 +13,24 @@ module.exports = merge(common, {
     },
     plugins: [
         new UglifyJSPlugin({
-            sourceMap: true
+            sourceMap: true,
         }),
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production')
-            }
+                'NODE_ENV': JSON.stringify('production'),
+            },
         }),
         new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor'
+            name: 'vendor',
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'runtime'
+            name: 'runtime',
         }),
     ],
     output: {
         filename: 'static/[name].[chunkhash].js',
         chunkFilename: 'static/[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
-    }
+    },
 });
