@@ -9,27 +9,27 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader']
+                use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
-                ]
+                    'file-loader',
+                ],
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
-                    'file-loader'
-                ]
+                    'file-loader',
+                ],
             },
             {
                 test: /\.xml$/,
                 use: [
-                    'xml-loader'
-                ]
+                    'xml-loader',
+                ],
             },
-        ]
+        ],
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),

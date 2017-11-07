@@ -29,8 +29,8 @@ module.exports = merge(common, {
         }),
     ],
     output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        filename: 'static/[name].[chunkhash].js',
+        chunkFilename: 'static/[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
     }
 });
