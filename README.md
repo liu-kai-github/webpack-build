@@ -24,24 +24,24 @@ npm run build
 
 ```
 webpack-build/
-  README.md
-  package.json
-  package-lock.json
-  public/
-    index.html
-  src/
-    component1/
-      component1.js
-      math.js
-    component2/
-      component2.js
-      print.js
-    component3/
-      component3.js
-      data.xml
-      glyphicons-halflings-regular.woff
-      glyphicons-halflings-regular.woff2
-      icon.jpg
-    index.css
-    index.js
+|- README.md
+|- package.json
+|- package-lock.json
+|- public/
+   |- index.html
+   |- src/
+      |- index.js
+      |- index.css
+   |- component1/
+      |- component1.js
+      |- math.js
+   |- component2/
+      |- component2.js
+      |- print.js
+   |- component3/
+      |- component3.js
+      |- data.xml
+      |- glyphicons-halflings-regular.woff
+      |- glyphicons-halflings-regular.woff2
+      |- icon.jpg
 ```
