@@ -6,6 +6,11 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     devtool: 'source-map',
+    entry: {
+        vendor: [
+            'lodash',
+        ],
+    },
     plugins: [
         new UglifyJSPlugin({
             sourceMap: true
@@ -21,11 +26,11 @@ module.exports = merge(common, {
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime'
-        })
+        }),
     ],
     output: {
         filename: '[name].[chunkhash].js',
         chunkFilename: '[name].[chunkhash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
     }
 });
