@@ -23,22 +23,22 @@ npm run build
 ### 目录结构
 
 ```
-webpack-build/
+/webpack-build
 |- README.md
 |- package.json
 |- package-lock.json
-|- public/
+|- /public
    |- index.html
-   |- src/
-      |- index.js
-      |- index.css
-   |- component1/
+|- /src
+   |- index.js
+   |- index.css
+   |- /component1
       |- component1.js
       |- math.js
-   |- component2/
+   |- /component2
       |- component2.js
       |- print.js
-   |- component3/
+   |- /component3
       |- component3.js
       |- data.xml
       |- glyphicons-halflings-regular.woff
