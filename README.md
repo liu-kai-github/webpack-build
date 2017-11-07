@@ -1,5 +1,25 @@
 # webpack-build
 
+### 启动项目
+
+* 安装依赖
+
+```sh
+npm install
+```
+
+* 运行项目
+
+```sh
+npm start
+```
+
+* 打包项目
+
+```sh
+npm run build
+```
+
 ### 目录结构
 
 ```
@@ -24,24 +44,4 @@ webpack-build/
       icon.jpg
     index.css
     index.js
-```
-
-### 启动项目
-
-* 安装依赖
-
-```sh
-npm install
-```
-
-* 运行项目
-
-```sh
-npm start
-```
-
-* 打包项目
-
-```sh
-npm run build
 ```
