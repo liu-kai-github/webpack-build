@@ -32,5 +32,6 @@ module.exports = merge(common, {
         filename: 'static/[name].[chunkhash].js',
         chunkFilename: 'static/[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
+        // publicPath: 'http://cdn.example.com/assets/',
     },
 });
