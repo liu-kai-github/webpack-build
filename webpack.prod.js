@@ -19,7 +19,7 @@ module.exports = merge(common, {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ['css-loader'],
-                    publicPath: 'http://localhost:8088',
+                    // publicPath: 'http://localhost:8088',
                 })
             },
             {
@@ -28,7 +28,7 @@ module.exports = merge(common, {
                     {
                         loader: 'file-loader',
                         options: {
-                            publicPath: 'http://localhost:8088',
+                            // publicPath: 'http://localhost:8088',
                             outputPath: '/static/img/',
                         },
                     },
@@ -61,7 +61,7 @@ module.exports = merge(common, {
         }),
     ],
     output: {
-        publicPath: 'http://localhost:8088',
+        // publicPath: 'http://localhost:8088',
         path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].[chunkhash].js',
         chunkFilename: 'static/js/[name].[chunkhash].js',
