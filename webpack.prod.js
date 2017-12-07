@@ -18,17 +18,19 @@ module.exports = merge(common, {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [{
-                        loader: 'css-loader',
-                        options: {
-                            // root: '.',
-                            import: false,
-                            // modules: false,
-                            minimize: true,
-                            sourceMap: true,
-
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                // root: '.',
+                                // import: false,
+                                // modules: true,
+                                // localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                                minimize: true,
+                                sourceMap: true,
+                            }
                         }
-                    }],
+                    ],
                     // publicPath: 'http://localhost:8088',
                 })
             },
@@ -36,10 +38,11 @@ module.exports = merge(common, {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: 'url-loader',
                         options: {
                             // publicPath: 'http://localhost:8088',
                             outputPath: '/static/img/',
+                            limit: 8192,
                         },
                     },
                 ],
@@ -47,6 +50,7 @@ module.exports = merge(common, {
         ],
     },
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new UglifyJSPlugin({
             sourceMap: true,
         }),

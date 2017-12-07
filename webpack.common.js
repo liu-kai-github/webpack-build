@@ -32,7 +32,6 @@ module.exports = {
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: './public/index.html',
             title: 'Production',

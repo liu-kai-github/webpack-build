@@ -7,15 +7,33 @@ module.exports = merge(common, {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // root: '.',
+                            // import: false,
+                            // modules: true,
+                            // localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                            minimize: true,
+                            sourceMap: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        // loader: 'file-loader',
+                        // options: {
+                        //     outputPath: 'static/img/',
+                        // },
+                        loader: 'url-loader',
                         options: {
                             outputPath: 'static/img/',
+                            limit: 8192,
                         },
                     },
                 ],
