@@ -1,5 +1,6 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -9,7 +10,11 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader'],
+                    publicPath: 'http://localhost:8088',
+                })
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
@@ -17,7 +22,8 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: './static/',
+                            publicPath: 'http://localhost:8088',
+                            outputPath: '/static/img/',
                         },
                     },
                 ],
@@ -28,7 +34,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            outputPath: './static/',
+                            outputPath: '/static/woff/',
                         },
                     },
                 ],
@@ -51,6 +57,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html',
             title: 'Production',
+        }),
+        new ExtractTextPlugin({
+            // filename:  (getPath) => {
+            //     return getPath('css/[name].css').replace('css/js', 'css');
+            // },
+            filename: 'static/css/app.css',
+            allChunks: true
         }),
     ],
 };

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import './app2.css';
 
 function component2() {
     const element = document.createElement('div');

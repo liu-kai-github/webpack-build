@@ -27,10 +27,15 @@ module.exports = merge(common, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime',
         }),
+        // new webpack.SourceMapDevToolPlugin({
+        //     filename: '[name].js.map',
+        //     exclude: ['vendor.[chunkhash].js']
+        // }),
     ],
     output: {
-        filename: 'static/[name].[chunkhash].js',
-        chunkFilename: 'static/[name].[chunkhash].js',
+        publicPath: 'http://localhost:8088',
+        filename: 'static/js/[name].[chunkhash].js',
+        chunkFilename: 'static/js/[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
         // publicPath: 'http://cdn.example.com/assets/',
     },
