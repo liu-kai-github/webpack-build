@@ -1,4 +1,5 @@
 import {cube} from './math.js';
+import './app1.css';
 
 function component1() {
     const element = document.createElement('pre');

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import Icon from './icon.jpg';
 // import Data from './data.xml';
+import './app3.css';
 
 function component3() {
     const element = document.createElement('div');

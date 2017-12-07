@@ -56,15 +56,15 @@ module.exports = merge(common, {
             // filename:  (getPath) => {
             //     return getPath('css/[name].css').replace('css/js', 'css');
             // },
-            filename: 'static/css/style.css',
+            filename: 'static/css/style.[contenthash].css',
             allChunks: true
         }),
     ],
     output: {
         publicPath: 'http://localhost:8088',
+        path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].[chunkhash].js',
         chunkFilename: 'static/js/[name].[chunkhash].js',
-        path: path.resolve(__dirname, 'dist'),
         // publicPath: 'http://cdn.example.com/assets/',
     },
 });
