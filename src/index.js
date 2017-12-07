@@ -1,7 +1,7 @@
 import component1 from './component1/component1';
 import component2 from './component2/component2';
 import component3 from './component3/component3';
-import './styles.css';
+import './common.css';
 
 if (process.env.NODE_ENV !== 'production') {
     console.log('Looks like we are in development mode!');

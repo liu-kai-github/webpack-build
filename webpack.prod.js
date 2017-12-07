@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -9,6 +10,30 @@ module.exports = merge(common, {
     entry: {
         vendor: [
             'lodash',
+        ],
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader'],
+                    publicPath: 'http://localhost:8088',
+                })
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            publicPath: 'http://localhost:8088',
+                            outputPath: '/static/img/',
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins: [
@@ -27,10 +52,13 @@ module.exports = merge(common, {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'runtime',
         }),
-        // new webpack.SourceMapDevToolPlugin({
-        //     filename: '[name].js.map',
-        //     exclude: ['vendor.[chunkhash].js']
-        // }),
+        new ExtractTextPlugin({
+            // filename:  (getPath) => {
+            //     return getPath('css/[name].css').replace('css/js', 'css');
+            // },
+            filename: 'static/css/style.css',
+            allChunks: true
+        }),
     ],
     output: {
         publicPath: 'http://localhost:8088',
