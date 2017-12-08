@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -56,6 +57,18 @@ module.exports = merge(common, {
             // },
             filename: 'style.[contenthash].css',
             allChunks: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            title: 'Production',
+            favicon: './public/favicon.png',
+            // minify: {
+            //     collapseBooleanAttributes: true,
+            //     collapseInlineTagWhitespace: true,
+            //     collapseWhitespace: true,
+            //     ignoreCustomComments: true,
+            //     keepClosingSlash: true,
+            // },
         }),
     ],
 });

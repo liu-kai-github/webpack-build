@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -73,6 +74,20 @@ module.exports = merge(common, {
             // },
             filename: 'static/css/style.[contenthash].css',
             allChunks: true
+        }),
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+            title: 'Production',
+            favicon: './public/favicon.png',
+            minify: {
+                collapseBooleanAttributes: true,
+                collapseInlineTagWhitespace: true,
+                collapseWhitespace: true,
+                // ignoreCustomComments: true,
+                // keepClosingSlash: true,
+                useShortDoctype: true,
+                removeComments: true,
+            },
         }),
     ],
     output: {
