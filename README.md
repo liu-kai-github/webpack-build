@@ -19,7 +19,7 @@ npm start
 ```sh
 npm run build
 ```
-
+<!--
 ### 目录结构
 
 ```
@@ -44,4 +44,4 @@ npm run build
       |- glyphicons-halflings-regular.woff
       |- glyphicons-halflings-regular.woff2
       |- icon.jpg
-```
+```-->
