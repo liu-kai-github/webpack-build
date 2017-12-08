@@ -41,9 +41,9 @@ module.exports = merge(common, {
                     {
                         loader: 'url-loader',
                         options: {
-                            // publicPath: 'http://localhost:8088',
-                            outputPath: '/static/img/',
                             limit: 8192,
+                            outputPath: '/static/img/',
+                            // publicPath: 'http://localhost:8088',
                         },
                     },
                 ],
@@ -76,10 +76,9 @@ module.exports = merge(common, {
         }),
     ],
     output: {
-        // publicPath: 'http://localhost:8088',
-        path: path.resolve(__dirname, 'dist'),
         filename: 'static/js/[name].[chunkhash].js',
         chunkFilename: 'static/js/[name].[chunkhash].js',
-        // publicPath: 'http://cdn.example.com/assets/',
+        path: path.resolve(__dirname, 'dist'),
+        // publicPath: 'http://localhost:8088',
     },
 });

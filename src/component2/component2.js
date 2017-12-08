@@ -9,6 +9,7 @@ function component2() {
     button.innerHTML = '点击按钮，查看console和network';
     element.innerHTML = _.join(['异步加载资源', '正常'], ' ');
     element.classList.add('hello');
+    element.classList.add('hello2');
     element.appendChild(br);
     element.appendChild(button);
 
